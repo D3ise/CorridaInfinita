@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CorridaInfinita.MainPage">
+
+   <Grid>
+   <Image x:name="fundo"
+   Source="fundo.png"
+   Aspect="Fill"/>
+
+   <Image x:name="fundo3"
+   Source="fundo3.png"
+   Aspect="Fill"/>
+
+   <Image x:name="fundo2"
+   Source="fundo2.png"
+   Aspect="Fill"/>
+
+   <Image x:name="chao"
+   Source="chao.png"
+   Aspect="Fill"/>
+
+   <Image x:name="animal"
+   Source="animal.png"
+   Aspect="Fill"/>
+   
+   
+   </Grid>
+
+</ContentPage>
