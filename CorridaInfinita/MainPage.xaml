@@ -4,23 +4,23 @@
              x:Class="CorridaInfinita.MainPage">
 
    <Grid>
-   <Image x:name="fundo"
+   <Image x:Name="fundo"
    Source="fundo.png"
    Aspect="Fill"/>
 
-   <Image x:name="fundo3"
+   <Image x:Name="fundopredio"
    Source="fundo3.png"
    Aspect="Fill"/>
 
-   <Image x:name="fundo2"
+   <Image x:Name="fundoparque"
    Source="fundo2.png"
    Aspect="Fill"/>
 
-   <Image x:name="chao"
+   <Image x:Name="chao"
    Source="chao.png"
    Aspect="Fill"/>
 
-   <Image x:name="animal"
+   <Image x:Name="animal"
    Source="animal.png"
    Aspect="Fill"/>
    
