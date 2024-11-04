@@ -22,6 +22,18 @@ public partial class MainPage : ContentPage
 		while (!estamorto)
 		{
 			GerenciaImagens();
+			await Task.Delay(tempoentreframes);
+		}
+	}
+
+	void GerenciaImagens(HorizontalStackLayout HSL)
+	{
+		var view = (HSL.Children.First() as Image);
+		if (view.WidthRequest + HSL.TranslationX <0)
+		{
+			HSL.Children.Remove(view);
+			HSL.Children.Add(view);
+			HSL.TranslationX=view.TranslationX;
 		}
 	}
 
@@ -30,6 +42,11 @@ public partial class MainPage : ContentPage
 		base.OnSizeAllocated(w, h);
 		CalculaVelocidade(w);
 		CorrigeTamanho(w, h);
+	}
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		Desenhar();
 	}
 	void CalculaVelocidade(double w)
 	{
@@ -56,19 +73,21 @@ public partial class MainPage : ContentPage
 		Layerchao.WidthRequest = w;
 	}
 
+	void MoveCenario()
+	{
+		Layer1.TranslationX-=velocidade1;
+		Layer2.TranslationX-=velocidade2;
+		Layer3.TranslationX-=velocidade3;
+        Layerchao.TranslationX-=velocidade;
+	}
+
 	void GerenciaImagens()
 	{
-		Layer1.TranslationX -= velocidade1;
-		Layer2.TranslationX -= velocidade2;
-		Layer3.TranslationX -= velocidade3;
-		Layerchao.TranslationX -= velocidade;
-		if (Layer1.TranslationX < -larguraJanela)
-		{
-			Layer1.TranslationX = 0;
-			Layer2.TranslationX = 0;
-			Layer3.TranslationX = 0;
-			Layerchao.TranslationX = 0;
-		}
+		MoveCenario();
+		GerenciaImagens(Layer1);
+		GerenciaImagens(Layer2);
+		GerenciaImagens(Layer3);
+		GerenciaImagens(Layerchao);
 	}
 }
 
