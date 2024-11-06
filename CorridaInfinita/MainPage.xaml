@@ -54,7 +54,7 @@
       </HorizontalStackLayout>
 
       <Image x:Name="animal"
-             Source="a00.gif"
+             Source="a00.png"
              Margin="50,500,50,0"
              Aspect="AspectFill"/>
 
