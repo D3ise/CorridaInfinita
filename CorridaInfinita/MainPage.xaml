@@ -41,22 +41,24 @@
                 Aspect="Fill"/>
       </HorizontalStackLayout>
 
-      <HorizontalStackLayout x:Name="Layerchao">
+      <HorizontalStackLayout x:Name="Layerchao"
+                             VerticalOptions="End"
+                             HeightRequest="700">
          <Image Source="chao.png"
-                VerticalOptions="Fill"
                 Aspect="Fill"/>
          <Image Source="chao.png"
-                VerticalOptions="Fill"
                 Aspect="Fill"/>
          <Image Source="chao.png"
-                VerticalOptions="Fill"
                 Aspect="Fill"/>
       </HorizontalStackLayout>
 
-      <Image x:Name="animal"
+      <Image x:Name="animacao"
              Source="a00.png"
-             Margin="50,500,50,0"
-             Aspect="AspectFill"/>
+             Margin="0,0,700,0"
+             HeightRequest="100"
+             WidthRequest="180"
+             VerticalOptions="End"
+             HorizontalOptions="Start"/>
 
 
    </Grid>

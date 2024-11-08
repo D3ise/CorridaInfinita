@@ -11,10 +11,13 @@ public partial class MainPage : ContentPage
 	int velocidade3 = 0;
 	int larguraJanela = 0;
 	int alturaJanela = 0;
+	Player player;
 
 	public MainPage()
 	{
 		InitializeComponent();
+		player=new Player(animacao);
+		player.Run();
 	}
 
 	async Task Desenhar()
@@ -22,6 +25,7 @@ public partial class MainPage : ContentPage
 		while (!estamorto)
 		{
 			GerenciaImagens();
+			player.Desenha();
 			await Task.Delay(tempoentreframes);
 		}
 	}
@@ -51,7 +55,7 @@ public partial class MainPage : ContentPage
 	void CalculaVelocidade(double w)
 	{
 		velocidade = (int)(w * 0.01);
-		velocidade1 = (int)(w * 0.001);
+		velocidade1 = (int)(w * 0.002);
 		velocidade2 = (int)(w * 0.004);
 		velocidade3 = (int)(w * 0.008);
 	}
