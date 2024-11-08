@@ -45,10 +45,13 @@
                              VerticalOptions="End"
                              HeightRequest="700">
          <Image Source="chao.png"
+                HorizontalOptions="Fill"
                 Aspect="Fill"/>
          <Image Source="chao.png"
+                HorizontalOptions="Fill"
                 Aspect="Fill"/>
          <Image Source="chao.png"
+                HorizontalOptions="Fill"
                 Aspect="Fill"/>
       </HorizontalStackLayout>
 
