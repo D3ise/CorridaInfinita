@@ -1,3 +1,5 @@
+using FFImageLoading.Maui;
+
 namespace CorridaInfinita;
 
 public partial class AnimacaoPage 
@@ -9,9 +11,9 @@ public partial class AnimacaoPage
     protected int AnimacaoAtiva =1;
     bool parado=true;
     int frameAtual=1;
-    protected Image compImagem;
+    protected CachedImageView compImagem;
 
-    public AnimacaoPage(Image a)
+    public AnimacaoPage(CachedImageView a)
 	{
 		compImagem=a;
 	}
