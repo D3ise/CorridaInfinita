@@ -4,7 +4,16 @@ public partial class MainPage : ContentPage
 {
 	bool estamorto = false;
 	bool estapulando = false;
+	bool estaNoChao = true;
+	bool estaNoAr = false;
+	bool estaPulando = false;
 	const int tempoentreframes = 25;
+	const int forcaGravidade = 6;
+	const int forcaPulo = 8;
+	const int maxTempoPulando = 6;
+	const int maxTempoNoAr = 4;
+	int tempoPulando = 0;
+	int tempoNoAr = 0;
 	int velocidade = 0;
 	int velocidade1 = 0;
 	int velocidade2 = 0;
