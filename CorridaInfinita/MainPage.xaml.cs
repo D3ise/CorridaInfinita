@@ -2,6 +2,7 @@
 
 public partial class MainPage : ContentPage
 {
+	Player player;
 	bool estamorto = false;
 	bool estapulando = false;
 	bool estaNoChao = true;
@@ -20,7 +21,45 @@ public partial class MainPage : ContentPage
 	int velocidade3 = 0;
 	int larguraJanela = 0;
 	int alturaJanela = 0;
-	Player player;
+
+
+
+	void AplicaGravidade()
+	{
+		if(player.GetY() < 0)
+			player.MoveY(forcaGravidade);
+		else if (player.GetY() >= 0)
+		{
+			player.SetY(0);
+			estaNoChao = true;
+		}
+	}
+
+	void AplicaPulo()
+	{
+		estaNoChao = false;
+		if (estaPulando && tempoPulando >= maxTempoPulando)
+		{
+			estaPulando = false;
+			estaNoAr = true;
+			tempoNoAr = 0;
+		}
+		else if (estaNoAr && tempoNoAr >= maxTempoNoAr)
+		{
+			estaPulando = false;
+			estaNoAr = false;
+			tempoPulando = 0;
+			tempoNoAr = 0;
+		}	
+		else if (estaPulando && tempoPulando < maxTempoPulando)
+		{
+			player.MoveY(-forcaPulo);
+			tempoPulando++;
+		}
+		else if (estaNoAr)
+		 tempoNoAr++;
+	}
+	
 
 	public MainPage()
 	{
@@ -34,8 +73,14 @@ public partial class MainPage : ContentPage
 		while (!estamorto)
 		{
 			GerenciaImagens();
-			player.Desenha();
-			await Task.Delay(tempoentreframes);
+			if(!estaPulando && !estaNoAr)
+			{
+				AplicaGravidade();
+				player.Desenha();
+			}
+			else 
+			AplicaPulo();
+		 	await Task.Delay(tempoentreframes);
 		}
 	}
 
@@ -101,6 +146,14 @@ public partial class MainPage : ContentPage
 		GerenciaImagens(Layer2);
 		GerenciaImagens(Layer3);
 		GerenciaImagens(Layerchao);
+	}
+
+	void Pulo(object o, TappedEventArgs a)
+	{
+		if(estaNoChao)
+		{
+			estaPulando	= true;
+		}
 	}
 }
 

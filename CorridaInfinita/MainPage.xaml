@@ -5,7 +5,7 @@
              xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui">
 
        <Grid>
-              <HorizontalStackLayout x:Name="Layer1"
+                     <HorizontalStackLayout x:Name="Layer1"
                                      VerticalOptions="Fill">
                      <Image Source="fundo.png"
                             VerticalOptions="Fill"
@@ -15,7 +15,7 @@
                             Aspect="Fill"/>
                      <Image Source="fundo.png"
                             VerticalOptions="Fill"
-                            Aspect="Fill"/>
+                            Aspect="Fill"/>       
               </HorizontalStackLayout>
 
               <HorizontalStackLayout x:Name="Layer2">
