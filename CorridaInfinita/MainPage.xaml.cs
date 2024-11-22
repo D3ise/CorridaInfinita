@@ -3,8 +3,8 @@
 public partial class MainPage : ContentPage
 {
 	Player player;
+	Inimigos inimigos;
 	bool estamorto = false;
-	bool estapulando = false;
 	bool estaNoChao = true;
 	bool estaNoAr = false;
 	bool estaPulando = false;
@@ -21,8 +21,14 @@ public partial class MainPage : ContentPage
 	int velocidade3 = 0;
 	int larguraJanela = 0;
 	int alturaJanela = 0;
+	
 
-
+	public MainPage()
+	{
+		InitializeComponent();
+		player=new Player(animacao);
+		player.Run();
+	}
 
 	void AplicaGravidade()
 	{
@@ -59,20 +65,14 @@ public partial class MainPage : ContentPage
 		else if (estaNoAr)
 		 tempoNoAr++;
 	}
-	
-
-	public MainPage()
-	{
-		InitializeComponent();
-		player=new Player(animacao);
-		player.Run();
-	}
 
 	async Task Desenhar()
 	{
 		while (!estamorto)
 		{
 			GerenciaImagens();
+			if (inimigos!=null)
+			inimigos.Desenha(velocidade);
 			if(!estaPulando && !estaNoAr)
 			{
 				AplicaGravidade();
@@ -100,6 +100,10 @@ public partial class MainPage : ContentPage
 		base.OnSizeAllocated(w, h);
 		CalculaVelocidade(w);
 		CorrigeTamanho(w, h);
+		inimigos = new Inimigos (-w);
+		inimigos.Add(new Inimigo(imginimigo1));
+		inimigos.Add(new Inimigo(imginimigo2));
+		inimigos.Add(new Inimigo(imginimigo3));
 	}
 	protected override void OnAppearing()
 	{
@@ -155,5 +159,17 @@ public partial class MainPage : ContentPage
 			estaPulando	= true;
 		}
 	}
+
+	void OnGridTapped (object e, TappedEventArgs a)
+	{
+		if (estaNoChao)
+		estaPulando=true;
+	}
+
+
+	
+
+
+
 }
 

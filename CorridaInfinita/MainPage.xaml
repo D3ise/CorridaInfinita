@@ -5,6 +5,9 @@
              xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui">
 
        <Grid>
+       <Grid.GestureRecognizers>
+       <TapGestureRecognizer Tapped="OnGridTapped"/>
+       </Grid.GestureRecognizers>
                      <HorizontalStackLayout x:Name="Layer1"
                                      VerticalOptions="Fill">
                      <Image Source="fundo.png"
