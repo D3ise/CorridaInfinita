@@ -11,8 +11,8 @@ public partial class MainPage : ContentPage
 	const int tempoentreframes = 25;
 	const int forcaGravidade = 6;
 	const int forcaPulo = 8;
-	const int maxTempoPulando = 6;
-	const int maxTempoNoAr = 4;
+	const int maxTempoPulando = 12;
+	const int maxTempoNoAr = 10;
 	int tempoPulando = 0;
 	int tempoNoAr = 0;
 	int velocidade = 0;
@@ -104,6 +104,7 @@ public partial class MainPage : ContentPage
 		inimigos.Add(new Inimigo(imginimigo1));
 		inimigos.Add(new Inimigo(imginimigo2));
 		inimigos.Add(new Inimigo(imginimigo3));
+		inimigos.Add(new Inimigo(imginimigo4));
 	}
 	protected override void OnAppearing()
 	{

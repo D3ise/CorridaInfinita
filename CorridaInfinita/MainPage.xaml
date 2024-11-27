@@ -74,6 +74,19 @@
                      VerticalOptions="End"
                      HorizontalOptions="Start"/>
 
+               <Image x:Name= "imginimigo1"
+                            Source="imgmuro.png"
+                            Aspect="Fill"/>
+              <Image x:Name= "imginimigo2"
+                            Source="imgtijolo.png"
+                            Aspect="Fill"/>
+              <Image x:Name= "imginimigo3"
+                            Source="imgpedra.png"
+                            Aspect="Fill"/>
+               <Image x:Name= "imginimigo4"
+                            Source="imgtij.png"
+                            Aspect="Fill"/>
+
 
        </Grid>
 
